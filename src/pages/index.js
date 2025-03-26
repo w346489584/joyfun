@@ -72,7 +72,7 @@ export default function Home() {
           {/* Why Choose Us */}
           <section className="mb-16">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-apple-dark mb-4">Why Choose JoyFun.space?</h2>
+              <h2 className="text-3xl font-bold text-apple-dark mb-4">Why Choose JoyFun.space ?</h2>
               <p className="text-lg text-apple-gray-600 max-w-3xl mx-auto">
                 We provide the best online gaming experience with carefully selected games for all types of players.
               </p>
