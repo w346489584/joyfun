@@ -58,22 +58,23 @@ function generateSiteMap(games) {
  `;
 }
 
-function SiteMap() {
-  // getServerSideProps will do the heavy lifting
-}
+// 只使用getInitialProps，不使用getStaticProps
+const SiteMap = () => {
+  // 这个组件在静态导出时需要返回null
+  return null;
+};
 
-export async function getServerSideProps({ res }) {
-  // Generate the XML sitemap with the games data
+// 使用getInitialProps生成sitemap
+SiteMap.getInitialProps = async ({ res }) => {
   const sitemap = generateSiteMap(games);
-
-  res.setHeader('Content-Type', 'text/xml');
-  // Send the XML to the browser
-  res.write(sitemap);
-  res.end();
-
-  return {
-    props: {},
-  };
-}
+  
+  if (res) {
+    res.setHeader('Content-Type', 'text/xml');
+    res.write(sitemap);
+    res.end();
+  }
+  
+  return {};
+};
 
 export default SiteMap; 

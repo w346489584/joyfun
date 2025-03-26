@@ -5,7 +5,12 @@ const nextConfig = {
   images: {
     domains: ['cloud.onlinegames.io'], // Allow images from game provider
   },
+  // 静态导出配置
+  trailingSlash: true, // 在页面URL末尾添加斜杠，有助于静态托管
+  // 保留headers配置但添加注释表明它在静态导出时不会生效
   async headers() {
+    // 注意：在静态导出时，这些头信息将不会生效
+    // 需要在Cloudflare Pages设置中配置自定义头信息
     return [
       {
         // Apply these headers to all routes
@@ -31,8 +36,10 @@ const nextConfig = {
       },
     ];
   },
-  // For iframe security
+  // 保留rewrites配置但添加注释表明它在静态导出时不会生效
   async rewrites() {
+    // 注意：在静态导出时，这些重写规则将不会生效
+    // 需要在Cloudflare Pages的_redirects文件中配置
     return [
       {
         source: '/api/proxy/:path*',

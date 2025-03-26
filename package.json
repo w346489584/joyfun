@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export",
+    "deploy": "next build && next export && echo 'Ready to deploy to Cloudflare Pages'",
+    "preview": "npm run export && npx serve out"
   },
   "dependencies": {
     "next": "12.2.5",
